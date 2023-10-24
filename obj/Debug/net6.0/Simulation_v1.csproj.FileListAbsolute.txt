@@ -1,0 +1,15 @@
+C:\chemtrails\code\Simulation_v1\bin\Debug\net6.0\Simulation_v1.exe
+C:\chemtrails\code\Simulation_v1\bin\Debug\net6.0\Simulation_v1.deps.json
+C:\chemtrails\code\Simulation_v1\bin\Debug\net6.0\Simulation_v1.runtimeconfig.json
+C:\chemtrails\code\Simulation_v1\bin\Debug\net6.0\Simulation_v1.dll
+C:\chemtrails\code\Simulation_v1\bin\Debug\net6.0\Simulation_v1.pdb
+C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\Simulation_v1.csproj.AssemblyReference.cache
+C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\Simulation_v1.GeneratedMSBuildEditorConfig.editorconfig
+C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\Simulation_v1.AssemblyInfoInputs.cache
+C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\Simulation_v1.AssemblyInfo.cs
+C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\Simulation_v1.csproj.CoreCompileInputs.cache
+C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\Simulation_v1.dll
+C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\refint\Simulation_v1.dll
+C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\Simulation_v1.pdb
+C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\Simulation_v1.genruntimeconfig.cache
+C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\ref\Simulation_v1.dll
