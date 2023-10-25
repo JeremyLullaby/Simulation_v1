@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "BZ/PoyYN7IBINlMY/UR9tWQ6X1/tUWE7uqVpDwfBK5Ih8FNU9xdozRM72ulKoKnVlDPnEvdluDlxDkLf8vTf5w==",
+  "dgSpecHash": "+FYDRGLKoz/lXlL8mgsY3YJZjin3unxCLSugXC5LHRoJBU6+OClecRKox9zTkvMte1W1bo6VbOHSfIQ6QWqtoQ==",
   "success": true,
-  "projectFilePath": "C:\\chemtrails\\code\\Simulation_v1\\Simulation_v1.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\Creative Shit\\Code Projects\\Simulation_v1\\Simulation_v1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alexm.DESKTOP-UUJ6RRK\\.nuget\\packages\\spectre.console\\0.47.0\\spectre.console.0.47.0.nupkg.sha512",
+    "C:\\Users\\alexm.DESKTOP-UUJ6RRK\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512"
+  ],
   "logs": []
 }

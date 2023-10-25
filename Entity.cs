@@ -10,10 +10,20 @@ namespace Simulation_v1
     {
         protected Random random= new Random();
 
+        public int Life { get { return life; } }
+        protected int life;
 
-        protected int age = 0;
         public int Age { get { return age; } }
+        protected int age = 0;
+
+        public Entity parent;
         public string surName;
+
+        protected int generation = 0;
+
+        protected bool CanCreateOffspring = true;
+        protected int offspringQuantity = 0;
+
 
 
 
@@ -34,6 +44,7 @@ namespace Simulation_v1
             //subscribes this entity's Entity_OnMessage() function as a subscriber to the OnMessage event
             this.OnMessage += Entity_OnMessage;
             this.OnBirth += Entity_OnBirth;
+            this.OnDeath += Entity_OnDeath;
         }
 
 
@@ -46,7 +57,13 @@ namespace Simulation_v1
         private void Entity_OnBirth(Entity sender, Entity offspring)
         {
             Program.AddEntity(offspring);
-            CreateNewMessage(sender.ToString() + " gave birth to " + offspring.ToString());
+            CreateNewMessage("[yellow]" + sender.ToString() + " gave birth to " + offspring.ToString() + "[/]");
+        }
+
+        private void Entity_OnDeath(Entity sender)
+        {
+            Program.RemoveEntity(sender);
+            CreateNewMessage("[red]" + sender.ToString() + " has died.[/]");
         }
 
         protected void CreateNewMessage(string message)
@@ -61,7 +78,17 @@ namespace Simulation_v1
 
         public virtual void Exist()
         {
-            age++;
+            if(Program.DayCounter % 5 == 0)
+            {
+                age++;
+            }
+
+            life--;
+            if(life <= 0)
+            {
+                Entity_OnDeath(this);
+            }
+
             Action();
         }
 
@@ -76,8 +103,12 @@ namespace Simulation_v1
 
         public virtual void CreateOffspring()
         {
+            if (CanCreateOffspring == false) return;
             Entity offspring = (Entity)Activator.CreateInstance(DetermineOffspringType());
-            offspring.surName = surName;
+            offspring.parent = this;
+            offspring.surName = this.surName;
+            offspring.generation = generation + 1;
+            this.offspringQuantity++;
 
             if(OnBirth != null) OnBirth(this, offspring);
         }

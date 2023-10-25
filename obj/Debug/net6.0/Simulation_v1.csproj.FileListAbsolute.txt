@@ -13,3 +13,20 @@ C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\refint\Simulation_v1.dll
 C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\Simulation_v1.pdb
 C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\Simulation_v1.genruntimeconfig.cache
 C:\chemtrails\code\Simulation_v1\obj\Debug\net6.0\ref\Simulation_v1.dll
+D:\Creative Shit\Code Projects\Simulation_v1\bin\Debug\net6.0\Simulation_v1.exe
+D:\Creative Shit\Code Projects\Simulation_v1\bin\Debug\net6.0\Simulation_v1.deps.json
+D:\Creative Shit\Code Projects\Simulation_v1\bin\Debug\net6.0\Simulation_v1.runtimeconfig.json
+D:\Creative Shit\Code Projects\Simulation_v1\bin\Debug\net6.0\Simulation_v1.dll
+D:\Creative Shit\Code Projects\Simulation_v1\bin\Debug\net6.0\Simulation_v1.pdb
+D:\Creative Shit\Code Projects\Simulation_v1\obj\Debug\net6.0\Simulation_v1.csproj.AssemblyReference.cache
+D:\Creative Shit\Code Projects\Simulation_v1\obj\Debug\net6.0\Simulation_v1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Creative Shit\Code Projects\Simulation_v1\obj\Debug\net6.0\Simulation_v1.AssemblyInfoInputs.cache
+D:\Creative Shit\Code Projects\Simulation_v1\obj\Debug\net6.0\Simulation_v1.AssemblyInfo.cs
+D:\Creative Shit\Code Projects\Simulation_v1\obj\Debug\net6.0\Simulation_v1.csproj.CoreCompileInputs.cache
+D:\Creative Shit\Code Projects\Simulation_v1\obj\Debug\net6.0\Simulation_v1.dll
+D:\Creative Shit\Code Projects\Simulation_v1\obj\Debug\net6.0\refint\Simulation_v1.dll
+D:\Creative Shit\Code Projects\Simulation_v1\obj\Debug\net6.0\Simulation_v1.pdb
+D:\Creative Shit\Code Projects\Simulation_v1\obj\Debug\net6.0\Simulation_v1.genruntimeconfig.cache
+D:\Creative Shit\Code Projects\Simulation_v1\obj\Debug\net6.0\ref\Simulation_v1.dll
+D:\Creative Shit\Code Projects\Simulation_v1\bin\Debug\net6.0\Spectre.Console.dll
+D:\Creative Shit\Code Projects\Simulation_v1\obj\Debug\net6.0\Simulation_v1.csproj.CopyComplete

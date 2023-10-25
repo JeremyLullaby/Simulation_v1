@@ -138,9 +138,17 @@ namespace Simulation_v1
             "Grumbleaxe"
         };
 
+        protected int maxOffspringQuantity;
+
 
         public Dwarf()
         {
+            InitializeDwarf();
+        }
+
+        private void InitializeDwarf()
+        {
+            life = random.Next(2000, 3000);
             age = 0;
 
             firstName = gender == HumanoidGenders.Male ?
@@ -148,11 +156,18 @@ namespace Simulation_v1
                 dwarfFemaleFirstNames[random.Next(dwarfFemaleFirstNames.Length)];
 
             surName = dwarfSurNames[random.Next(0, dwarfSurNames.Length)];
+
+            if (gender == HumanoidGenders.Male) this.CanCreateOffspring = false;
+            maxOffspringQuantity = gender == HumanoidGenders.Male ? 0 : random.Next(0, 5);
+
         }
 
         public override void Exist()
         {
             base.Exist();
+
+            
+            if(this.offspringQuantity >= maxOffspringQuantity) { CanCreateOffspring = false; }
             //any dwarf special things happening during the exist loop go here
         }
 
@@ -161,7 +176,7 @@ namespace Simulation_v1
             base.Action();
 
             //sends a string to the entity root function
-            CreateNewMessage(this.ToString() + " digs a hole. gender: " + this.gender + " age: " + this.age);
+            CreateNewMessage(this.ToString() + " digs a hole. [blue]Gender: " + this.gender + "[/] [yellow]Age: " + this.age + "[/] [red]Life: " + life + "[/]");
         }
 
         

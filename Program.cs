@@ -1,14 +1,18 @@
 ﻿using System.Net;
+using Spectre.Console;
 
 namespace Simulation_v1
 {
     internal class Program
     {
-        private static int dayCounter = 0;
+        private const int NumberOfRows = 40;
         public static int DayCounter { get { return dayCounter; } }
+        private static int dayCounter = 0;
 
-        static List<Entity> Entities = new();
-        static List<string> EventMessages = new();
+        public static List<Entity> Entities = new();
+        public static List<string> EventMessages = new();
+
+
 
 
         static void Main(string[] args)
@@ -19,38 +23,63 @@ namespace Simulation_v1
                 AddEntity(new Dwarf());
             }
 
-            while (true)
-            {
-                dayCounter++;
-                Console.WriteLine("A new day begins!");
+            var table = new Table().LeftAligned().Expand();
 
-
-                List<Entity> tempEnts = new List<Entity>(Entities);
-                foreach (Entity ent in tempEnts)
+            AnsiConsole.Live(table)
+                .AutoClear(false)
+                .Overflow(VerticalOverflow.Ellipsis)
+                .Cropping(VerticalOverflowCropping.Top)
+                .Start(ctx =>
                 {
-                    ent.Exist();
-                }
+                    table.AddColumn("[blue]World Events[/]");
+                    while (true)
+                    {
+                        dayCounter++;
+                        table.AddRow("[grey]A new day begins![/]");
+
+                        List<Entity> tempEnts = new List<Entity>(Entities);
+                        foreach (Entity ent in tempEnts)
+                        {
+                            ent.Exist();
+                        } 
 
 
-                List<string> tempEventMessages = new List<string>(EventMessages);
-                foreach (var item in tempEventMessages)
-                {
-                    Console.WriteLine(item);
-                    Thread.Sleep(300);
-                }
-                lock (EventMessages)
-                {
-                    EventMessages.Clear(); 
-                }
+                        //TODO - figure out a way to make all messages earn a rating depending on whatever.
+                        //as the global rating gets higher (too many messages), it becomes harder for
+                        //messages to meet rank requirements, therefore only the most important messages get 
+                        //added to the event list.
+                        List<string> tempEventMessages = new List<string>(EventMessages);
+                        foreach (var item in tempEventMessages)
+                        {
+                            table.AddRow("-" + item);
+                        }
+                        table.AddEmptyRow();
 
+                        lock (EventMessages)
+                        {
+                            EventMessages.Clear();
+                        }
 
+                        while(table.Rows.Count > NumberOfRows)
+                        {
+                            table.RemoveRow(0);
+                        }
 
-                Thread.Sleep(500);
-            }
+                        ctx.Refresh();
+                        
+                        Thread.Sleep(0);
+                    }
+                });
 
+            
         }
 
 
+
+        public static List<Entity> GetCurrentEntitiesList()
+        {
+            return Entities;
+        }
 
         public static void AddEntity(Entity entity)
         {

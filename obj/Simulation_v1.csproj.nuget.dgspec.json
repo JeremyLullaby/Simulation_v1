@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\chemtrails\\code\\Simulation_v1\\Simulation_v1.csproj": {}
+    "D:\\Creative Shit\\Code Projects\\Simulation_v1\\Simulation_v1.csproj": {}
   },
   "projects": {
-    "C:\\chemtrails\\code\\Simulation_v1\\Simulation_v1.csproj": {
+    "D:\\Creative Shit\\Code Projects\\Simulation_v1\\Simulation_v1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\chemtrails\\code\\Simulation_v1\\Simulation_v1.csproj",
+        "projectUniqueName": "D:\\Creative Shit\\Code Projects\\Simulation_v1\\Simulation_v1.csproj",
         "projectName": "Simulation_v1",
-        "projectPath": "C:\\chemtrails\\code\\Simulation_v1\\Simulation_v1.csproj",
-        "packagesPath": "C:\\Users\\amccutchen\\.nuget\\packages\\",
-        "outputPath": "C:\\chemtrails\\code\\Simulation_v1\\obj\\",
+        "projectPath": "D:\\Creative Shit\\Code Projects\\Simulation_v1\\Simulation_v1.csproj",
+        "packagesPath": "C:\\Users\\alexm.DESKTOP-UUJ6RRK\\.nuget\\packages\\",
+        "outputPath": "D:\\Creative Shit\\Code Projects\\Simulation_v1\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\amccutchen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alexm.DESKTOP-UUJ6RRK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +43,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Spectre.Console": {
+              "target": "Package",
+              "version": "[0.47.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
