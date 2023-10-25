@@ -12,6 +12,7 @@ namespace Simulation_v1
         public static List<Entity> Entities = new();
         public static List<string> EventMessages = new();
 
+        private static ConsoleKeyInfo PauseKeyInfo;
 
 
 
@@ -31,9 +32,11 @@ namespace Simulation_v1
                 .Cropping(VerticalOverflowCropping.Top)
                 .Start(ctx =>
                 {
-                    table.AddColumn("[blue]World Events[/]");
-                    while (true)
+                    table.AddColumn("[blue]World Events[/] - Press [yellow]SPACE[/] to simulate!");
+                    ctx.Refresh();
+                    do
                     {
+                        PauseKeyInfo = Console.ReadKey(true);
                         dayCounter++;
                         table.AddRow("[grey]A new day begins![/]");
 
@@ -41,7 +44,7 @@ namespace Simulation_v1
                         foreach (Entity ent in tempEnts)
                         {
                             ent.Exist();
-                        } 
+                        }
 
 
                         //TODO - figure out a way to make all messages earn a rating depending on whatever.
@@ -60,21 +63,20 @@ namespace Simulation_v1
                             EventMessages.Clear();
                         }
 
-                        while(table.Rows.Count > NumberOfRows)
+                        while (table.Rows.Count > NumberOfRows)
                         {
                             table.RemoveRow(0);
                         }
 
                         ctx.Refresh();
-                        
+
                         Thread.Sleep(0);
                     }
+                    while (PauseKeyInfo.Key == ConsoleKey.Spacebar);
                 });
 
             
         }
-
-
 
         public static List<Entity> GetCurrentEntitiesList()
         {

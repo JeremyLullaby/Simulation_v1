@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Simulation_v1
 {
-    public enum HumanoidGenders { Male, Female }
 
     internal class Humanoid : Entity
     {
-        protected string firstName;
-        protected HumanoidGenders gender;
+        public string firstName;
 
 
         protected Humanoid()
@@ -27,6 +25,7 @@ namespace Simulation_v1
             {
                 if (GetQuantityOfHumanoidsByGender(HumanoidGenders.Male) >= 1)
                 {
+                    parentFather = GetMaleFatherEntity(random.Next(0, GetQuantityOfHumanoidsByGender(HumanoidGenders.Male)));
                     if (random.Next(0, 1000) >= 900)
                     {
                         CreateOffspring();
@@ -38,6 +37,13 @@ namespace Simulation_v1
         public override string ToString()
         {
             return this.firstName + " " + this.surName;
+        }
+
+        protected Entity GetMaleFatherEntity(int index)
+        {
+            var currentHumanoids = Program.Entities.Where(o => o.gender == HumanoidGenders.Male);
+            Humanoid father = currentHumanoids.ElementAt(index) as Humanoid;
+            return father;
         }
 
         protected List<Humanoid> GetCurrentListOfHumanoidEntites()

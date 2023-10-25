@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -148,7 +149,7 @@ namespace Simulation_v1
 
         private void InitializeDwarf()
         {
-            life = random.Next(2000, 3000);
+            life = random.Next(1000, 1500);
             age = 0;
 
             firstName = gender == HumanoidGenders.Male ?
@@ -158,7 +159,7 @@ namespace Simulation_v1
             surName = dwarfSurNames[random.Next(0, dwarfSurNames.Length)];
 
             if (gender == HumanoidGenders.Male) this.CanCreateOffspring = false;
-            maxOffspringQuantity = gender == HumanoidGenders.Male ? 0 : random.Next(0, 5);
+            maxOffspringQuantity = (gender == HumanoidGenders.Male) ? 0 : random.Next(0, 5);
 
         }
 
@@ -176,7 +177,58 @@ namespace Simulation_v1
             base.Action();
 
             //sends a string to the entity root function
-            CreateNewMessage(this.ToString() + " digs a hole. [blue]Gender: " + this.gender + "[/] [yellow]Age: " + this.age + "[/] [red]Life: " + life + "[/]");
+            CreateNewMessage(this.ToString() + DetermineAction() + " [blue]Gender: " + this.gender + "[/] [yellow]Age: " + this.age + "[/]" +
+                ((life < 100) ? (" [red]Life: " + life + "[/]") : (" Life: " + life)));
+        }
+
+        private string DetermineAction()
+        {
+            string action = "";
+            if (random.Next(0, 1000) >= 800)
+            {
+                switch (this.age)
+                {
+                    case < 5:
+                        action = "plays with a toy.";
+                        break;
+                    case < 10:
+                        action = "learns a new skill.";
+                        break;
+                    case < 20:
+                        action = "gets into a fight.";
+                        break;
+                    case < 30:
+                        action = "aches for adventure.";
+                        break;
+                    case < 40:
+                        action = "thinks about loved ones.";
+                        break;
+                    case < 50:
+                        action = "drinks ale.";
+                        break;
+                    case < 70:
+                        action = "watches guard.";
+                        break;
+                    case < 90:
+                        action = "feels eager for a fight.";
+                        break;
+                    case < 120:
+                        action = "reminisces about childhood.";
+                        break;
+                    case < 160:
+                        action = "complains about thier back.";
+                        break;
+                    case < 250:
+                        action = "is tired.";
+                        break;
+                }
+            }
+            else
+            {
+                action = "digs a hole.";
+            }
+
+            return " " + action;
         }
 
         

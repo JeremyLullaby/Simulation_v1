@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Simulation_v1
 {
+    public enum HumanoidGenders { Male, Female }
+
+
     public class Entity
     {
         protected Random random= new Random();
@@ -16,10 +19,14 @@ namespace Simulation_v1
         public int Age { get { return age; } }
         protected int age = 0;
 
-        public Entity parent;
+        public Entity parentMother;
+        public Entity parentFather;
         public string surName;
 
         protected int generation = 0;
+
+        public HumanoidGenders gender;
+
 
         protected bool CanCreateOffspring = true;
         protected int offspringQuantity = 0;
@@ -57,7 +64,9 @@ namespace Simulation_v1
         private void Entity_OnBirth(Entity sender, Entity offspring)
         {
             Program.AddEntity(offspring);
-            CreateNewMessage("[yellow]" + sender.ToString() + " gave birth to " + offspring.ToString() + "[/]");
+            CreateNewMessage("[yellow]" + sender.ToString() + " gave birth to [green]" + offspring.ToString() + "[/]" +
+                "\n - " + ((offspring as Humanoid).gender == HumanoidGenders.Male ? "His" : "Her") + " father is " + parentFather + "." +
+                "[/]");
         }
 
         private void Entity_OnDeath(Entity sender)
@@ -103,10 +112,15 @@ namespace Simulation_v1
 
         public virtual void CreateOffspring()
         {
-            if (CanCreateOffspring == false) return;
+            if (CanCreateOffspring == false)
+            {
+                if (this.gender == HumanoidGenders.Male) return;
+                CreateNewMessage("[underline]" + this.ToString() + " tries to have a child, but can not.[/]");
+                return;
+            }
             Entity offspring = (Entity)Activator.CreateInstance(DetermineOffspringType());
-            offspring.parent = this;
-            offspring.surName = this.surName;
+            offspring.parentMother = this;
+            offspring.surName = parentFather.surName;
             offspring.generation = generation + 1;
             this.offspringQuantity++;
 
