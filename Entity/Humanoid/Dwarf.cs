@@ -160,7 +160,7 @@ namespace Simulation_v1
 
             if (gender == HumanoidGenders.Male) this.CanCreateOffspring = false;
             maxOffspringQuantity = (gender == HumanoidGenders.Male) ? 0 : random.Next(0, 5);
-
+            //maxOffspringQuantity = (gender == HumanoidGenders.Male) ? 0 : 1000;
         }
 
         public override void Exist()
@@ -234,3 +234,14 @@ namespace Simulation_v1
         
     }
 }
+
+
+/*
+ * dwarven stats
+ * hunger 
+ * dig 
+ * needs food to eat
+ * food stock and shit
+ * 
+ * 
+ */

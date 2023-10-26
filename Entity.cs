@@ -126,5 +126,10 @@ namespace Simulation_v1
 
             if(OnBirth != null) OnBirth(this, offspring);
         }
+
+        public void SetAge(int age)
+        {
+            this.age = age;
+        }
     }
 }
